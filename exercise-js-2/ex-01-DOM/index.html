@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>To Do List</title>
+    <style>
+   
+     div{
+     margin: 5%  auto;
+     width:350px;
+     }
+
+     #todo{
+     width:200px;
+     height:25px;
+     padding: 5px;
+     }
+
+     #add {
+     width:100px;
+     height:40px;
+     color:white;
+     background:#48484b;
+    border:none;
+    padding: 10px;
+    }
+
+     #add,#todo {
+     font-weight:bold;
+     border-radius:5px;
+     font-size:16px;
+     }
+
+  
+    </style>
+</head>
+        
+<body> 
+        
+     <div class="tasker">  
+         <h2>My Tasks</h2>
+        <!----Add dynamically (with JavaScript) the task's name-->
+        <!-----id=todo===id=task-->
+         <input type="text" id="todo" placeholder="Enter Task Name..."> 
+        <!----Create a button `Add Task`---->
+        <!-----id=add === id=add-task-->
+         <button id="add">Add task</button>
+         <!--- add span with non-breaking space using &nbsp;-->
+         <span id="add_task_error">&nbsp;</span>
+         
+         <!------Create a HTML page with an empty `<ul></ul>`.-->
+         <!----id=list === id=task-list-->
+         <ol id="list">
+   
+   
+           
+         </ol>        
+     </div>
+       
+        
+
+     <script>
+
+    //Adding a listener to every list item
+    //declare handler
+
+    function clickHandler(e) {
+    console.log(e.target.innerHTML);
+     }
+ 
+    // add a single listener on list item
+    list.addEventListener('click', clickHandler);
+
+    document.getElementById("add").addEventListener("click",function(){
+  
+     let todo  = document.getElementById("todo").value
+  
+     if(todo != ""){
+    
+     let li = document.createElement("li")
+  
+     let txt = document.createTextNode(todo)
+
+     li.appendChild(txt)
+  
+     document.getElementById("list").prepend(li)
+  
+     document.getElementById("todo").value = ""
+    
+     }
+  
+   })
+  
+     </script>
+</body>
+</html>
+
+
+
+
+ 
+
+ 
+  
+  
