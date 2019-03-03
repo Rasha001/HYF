@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>To Do List</title>
+    <style>
+
+    body {
+     background: #fff;
+     color: #333;
+     font-family: Lato, sans-serif;
+     }
+   
+     div{
+     margin: 5%  auto;
+     width:350px;     
+     }
+     #taskCounter{
+     width:100px;
+     height:40px;
+     color:white;
+     background:#48484b;
+     border:none;
+     padding: 10px;
+     }
+
+     #addTask{
+     width:200px;
+     height:25px;
+     padding: 5px;
+     }
+
+     .addBtn {
+     width:100px;
+     height:40px;
+     color:white;
+     background:#48484b;
+     border:none;
+     padding: 10px;
+     }
+
+     .addBtn,#addTask {
+     font-weight:bold;
+     border-radius:5px;
+     font-size:16px;
+     }
+
+     button {
+     background: none;
+     border: 1px solid ;
+     border-color: #888;
+     color:#48484b;
+     font-size: 15px;
+     width: 70px; 
+     padding: 2px;
+     }
+  
+    </style>
+ </head>
+        
+ <body> 
+        
+   <!--add span that onclick add number-->
+   <div id="taskCounter"><span id= "score"></span></div>
+   
+
+   <div id="myDIV" class="header"> 
+          
+    <h2>My Tasks</h2><br>
+
+     
+     <!--Add dynamically (with JavaScript) the task's name-->
+     <input type="text" id="addTask" placeholder="Enter Task Name...">
+
+     <!--Create a button `Add Task`---->
+     <button onclick="newElement()" class="addBtn">Add Task</button>
+     
+    
+     <ol id="myol">
+       
+           
+     </ol>        
+   </div>
+       
+
+   <script>
+     // acess our div using get element
+      let inputs = document.getElementById("addTask"); // This var is now a reference to the DOM node
+      let addBtn = document.getElementsByTagName("button")[0];
+      let score = 1;
+     // Create a new list item when clicking on the "Add task" button
+     function newElement() {
+      //Create List Item
+     let li = document.createElement("li");
+     //Create a new list item with the text from #new-task:
+     let inputs = document.getElementById("addTask").value; 
+       //create a button.delete
+     let deleteButton = document.createElement("button");
+      //create input value (text)
+     let txt = document.createTextNode(inputs);
+     let span = document.getElementById("score");
+     
+
+     //modify delete button element
+     deleteButton.innerText = "Delete";
+     deleteButton.className = "delete";
+     //append text and delete button elelements to list
+     li.appendChild(txt);
+     li.appendChild(deleteButton);
+     if (inputs != '') {
+     // acess our list using getElement
+     document.getElementById("myol").appendChild(li);
+     }
+     document.getElementById("addTask").value = "";
+     document.getElementById('score').innerHTML = "Number of tasks: " + score++;
+     //Delete an existing task
+     var deleteTask = function() {
+    // console.log("Delete task...");
+     let li = this.parentNode;
+     let ol = li.parentNode;
+  
+     //Remove the parent list item from the ol
+      ol.removeChild(li);
+     }
+
+     //bind deleteTask to delete button
+     deleteButton.onclick = deleteTask;
+     let bindTaskEvents = function(taskLi) {
+    // console.log("Bind list item events");
+     //select taskListItem's child
+      
+    let deleteButton = taskLis.querySelector("button.delete");
+    document.getElementById('score').innerHTML = "Number of tasks: " + score-1;
+  
+    }
+   }
+  
+ 
+   </script>
+ </body>
+ </html>
+    
+    
+    
+   
+    
